@@ -12,9 +12,9 @@ namespace HeroesWeb.Pages_Heroes
 {
     public class IndexModel : PageModel
     {
-        private readonly HeroesWeb.Data.HeroesContext _context;
+        private readonly HeroesWeb.Data.ApplicationDbContext _context;
 
-        public IndexModel(HeroesWeb.Data.HeroesContext context)
+        public IndexModel(HeroesWeb.Data.ApplicationDbContext context)
         {
             _context = context;
         }

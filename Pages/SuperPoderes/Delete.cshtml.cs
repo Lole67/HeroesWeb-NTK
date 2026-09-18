@@ -12,9 +12,9 @@ namespace HeroesWeb.Pages_SuperPoderes
 {
     public class DeleteModel : PageModel
     {
-        private readonly HeroesWeb.Data.HeroesContext _context;
+        private readonly HeroesWeb.Data.ApplicationDbContext _context;
 
-        public DeleteModel(HeroesWeb.Data.HeroesContext context)
+        public DeleteModel(HeroesWeb.Data.ApplicationDbContext context)
         {
             _context = context;
         }

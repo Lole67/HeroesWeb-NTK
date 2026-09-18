@@ -13,9 +13,9 @@ namespace HeroesWeb.Pages_SuperPoderes
 {
     public class CreateModel : PageModel
     {
-        private readonly HeroesWeb.Data.HeroesContext _context;
+        private readonly HeroesWeb.Data.ApplicationDbContext _context;
 
-        public CreateModel(HeroesWeb.Data.HeroesContext context)
+        public CreateModel(HeroesWeb.Data.ApplicationDbContext context)
         {
             _context = context;
         }

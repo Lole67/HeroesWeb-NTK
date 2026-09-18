@@ -13,9 +13,9 @@ namespace HeroesWeb.Pages_Heroes
 {
     public class EditModel : PageModel
     {
-        private readonly HeroesWeb.Data.HeroesContext _context;
+        private readonly HeroesWeb.Data.ApplicationDbContext _context;
 
-        public EditModel(HeroesWeb.Data.HeroesContext context)
+        public EditModel(HeroesWeb.Data.ApplicationDbContext context)
         {
             _context = context;
         }

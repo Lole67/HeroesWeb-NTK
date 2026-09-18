@@ -1,14 +1,42 @@
 using Microsoft.EntityFrameworkCore;
 using HeroesWeb.Data;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages(options =>
 
-builder.Services.AddDbContext<HeroesContext>(options =>
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("HeroesDb")
-        ?? throw new InvalidOperationException("Falta la conexión HeroesDb.")));
+{
+
+    options.Conventions.AuthorizeFolder("/Heroes");
+
+    options.Conventions.AuthorizeFolder("/SuperPoderes");
+
+});cd "C:\Users\loler\Desktop\Programacion\Visual\HeroesWeb"
+
+git status
+git add .
+git commit -m "Corrige configuración de ASP.NET Core Identity"
+git branch -M main
+git push -u origin main
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
+        ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(connectionString));
+
+builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
+{
+    options.SignIn.RequireConfirmedEmail = false;
+    options.User.RequireUniqueEmail = true;
+    options.Password.RequiredLength = 5;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireNonAlphanumeric = true;
+    options.Password.RequireDigit = true;
+}
+).AddEntityFrameworkStores<ApplicationDbContext>();
 
 var app = builder.Build();
 
@@ -20,6 +48,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapStaticAssets();
 app.MapRazorPages().WithStaticAssets();
