@@ -13,13 +13,7 @@ builder.Services.AddRazorPages(options =>
 
     options.Conventions.AuthorizeFolder("/SuperPoderes");
 
-});cd "C:\Users\loler\Desktop\Programacion\Visual\HeroesWeb"
-
-git status
-git add .
-git commit -m "Corrige configuración de ASP.NET Core Identity"
-git branch -M main
-git push -u origin main
+});
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
         ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
