@@ -15,6 +15,11 @@ namespace HeroesWeb.Models
         [Display(Name = "Correo de contacto")]
         public string Email { get; set; } = string.Empty;
 
+        [Required(ErrorMessage = "Ingrese la cantidad de integrantes.")]
+        [Range(1, 10, ErrorMessage = "La cantidad de integrantes debe estar entre 1 y 10.")]
+        [Display(Name = "Integrantes del equipo")]
+        public int? Integrantes { get; set; }
+
         [Required(ErrorMessage = "Seleccione una ciudad.")]
         [Display(Name = "Ciudad de operación")]
         public string Ciudad { get; set; } = string.Empty;

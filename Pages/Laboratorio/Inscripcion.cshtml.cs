@@ -43,7 +43,8 @@ namespace HeroesWeb.Pages.Laboratorio
                 m.Value == Inscripcion.MisionId!.Value.ToString());
 
             Confirmacion = $"Inscripción válida: {Inscripcion.Nombre} — "
-                + $"{mision.Text} en {Inscripcion.Ciudad}. "
+                + $"{mision.Text} en {Inscripcion.Ciudad}, "
+                + $"con {Inscripcion.Integrantes} integrantes. "
                 + "Demostración sin guardar en la base de datos.";
 
             return Page();

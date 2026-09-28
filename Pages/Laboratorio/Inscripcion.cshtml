@@ -34,6 +34,13 @@
     </div>
 
     <div class="mb-3">
+        <label asp-for="Inscripcion.Integrantes" class="form-label"></label>
+        <input asp-for="Inscripcion.Integrantes" class="form-control" />
+        <span asp-validation-for="Inscripcion.Integrantes"
+              class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
         <label asp-for="Inscripcion.Ciudad" class="form-label"></label>
         <select asp-for="Inscripcion.Ciudad" asp-items="Model.Ciudades"
                 class="form-select">
